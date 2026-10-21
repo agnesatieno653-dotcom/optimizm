@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Draft africa1",
+  "description": "Official website and interactive data companion for the book Optimistic Africa by Moky Makura \u0026 Dr Anand Kulkarni.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
