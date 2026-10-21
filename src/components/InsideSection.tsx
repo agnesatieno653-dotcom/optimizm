@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { KineticHeading } from './KineticHeading';
+import { AutoCounter } from './AutoCounter';
 
 // Chapter Artwork Imports
 import ch01Art from '../assets/chapters/art/ch01_peace_art.jpg';
@@ -349,7 +350,7 @@ export const InsideSection: React.FC<InsideSectionProps> = ({ onOpenIntro }) => 
                     ? 'The strengths to build on'
                     : tier === 'outcomes'
                     ? 'The difference it makes'
-                    : '11 Chapters'}
+                    : <><AutoCounter value={11} /> Chapters</>}
                 </span>
                 <span className="text-[10px] sm:text-[11px] font-semibold text-slate-400 mt-1 uppercase tracking-widest">
                   {tier === 'all' ? 'Active' : 'Click for all'}
@@ -369,7 +370,7 @@ export const InsideSection: React.FC<InsideSectionProps> = ({ onOpenIntro }) => 
               >
                 <span className="text-[11px] sm:text-[12px] font-extrabold uppercase tracking-wider opacity-85">01</span>
                 <strong className="text-[16px] sm:text-[18px] lg:text-[19px] font-serif font-bold leading-tight mt-0.5">Foundations</strong>
-                <span className="text-[10px] sm:text-[11px] mt-0.5 opacity-80 font-medium">3 Chapters</span>
+                <span className="text-[10px] sm:text-[11px] mt-0.5 opacity-80 font-medium"><AutoCounter value={3} /> Chapters</span>
               </button>
 
               {/* 2. Node 02: Capabilities (Bottom Right) - Sun Yellow / Amber */}
@@ -385,7 +386,7 @@ export const InsideSection: React.FC<InsideSectionProps> = ({ onOpenIntro }) => 
               >
                 <span className="text-[11px] sm:text-[12px] font-extrabold uppercase tracking-wider opacity-85">02</span>
                 <strong className="text-[16px] sm:text-[18px] lg:text-[19px] font-serif font-bold leading-tight mt-0.5">Capabilities</strong>
-                <span className="text-[10px] sm:text-[11px] mt-0.5 opacity-80 font-medium">6 Chapters</span>
+                <span className="text-[10px] sm:text-[11px] mt-0.5 opacity-80 font-medium"><AutoCounter value={6} /> Chapters</span>
               </button>
 
               {/* 3. Node 03: Outcomes (Bottom Left) - Pink */}
@@ -401,7 +402,7 @@ export const InsideSection: React.FC<InsideSectionProps> = ({ onOpenIntro }) => 
               >
                 <span className="text-[11px] sm:text-[12px] font-extrabold uppercase tracking-wider opacity-85">03</span>
                 <strong className="text-[16px] sm:text-[18px] lg:text-[19px] font-serif font-bold leading-tight mt-0.5">Outcomes</strong>
-                <span className="text-[10px] sm:text-[11px] mt-0.5 opacity-80 font-medium">2 Chapters</span>
+                <span className="text-[10px] sm:text-[11px] mt-0.5 opacity-80 font-medium"><AutoCounter value={2} /> Chapters</span>
               </button>
             </div>
 
@@ -581,7 +582,7 @@ export const InsideSection: React.FC<InsideSectionProps> = ({ onOpenIntro }) => 
                                   </span>
                                 </div>
                                 <span className="text-lg font-bold font-mono text-[#08798e] shrink-0">
-                                  {chapter.keyMetric}
+                                  <AutoCounter value={chapter.keyMetric} />
                                 </span>
                               </div>
 
@@ -696,7 +697,7 @@ export const InsideSection: React.FC<InsideSectionProps> = ({ onOpenIntro }) => 
                       </span>
                     </div>
                     <span className="text-2xl font-mono font-bold text-[#08798e]">
-                      {selectedPlate.keyMetric}
+                      <AutoCounter value={selectedPlate.keyMetric} />
                     </span>
                   </div>
 

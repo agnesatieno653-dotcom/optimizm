@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import confetti from 'canvas-confetti';
 import { KineticHeading } from './KineticHeading';
+import { AnimatedQuestionMark } from './AnimatedQuestionMark';
+import { AutoCounter } from './AutoCounter';
 
 interface Question {
   chapter: number;
@@ -238,29 +240,30 @@ export const QuizSection: React.FC = () => {
             Five questions drawn directly from the manuscript. Test your assumptions against comparative evidence and uncover a personalized reading pathway.
           </p>
 
-          {/* Value Badges */}
+          {/* Value Badges with Autocounted Numbers */}
           <div className="grid grid-cols-3 gap-2.5 max-w-[360px] mb-8">
             <div className="p-2.5 rounded-lg bg-white border border-[#123440]/10 text-center shadow-xs">
-              <span className="block text-lg font-bold text-[#123440]">5</span>
+              <span className="block text-lg font-bold text-[#123440]">
+                <AutoCounter value={5} />
+              </span>
               <span className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Questions</span>
             </div>
             <div className="p-2.5 rounded-lg bg-white border border-[#123440]/10 text-center shadow-xs">
-              <span className="block text-lg font-bold text-[#08798e]">~2</span>
+              <span className="block text-lg font-bold text-[#08798e]">
+                <AutoCounter value="~2" />
+              </span>
               <span className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Minutes</span>
             </div>
             <div className="p-2.5 rounded-lg bg-white border border-[#123440]/10 text-center shadow-xs">
-              <span className="block text-lg font-bold text-[#d91e68]">100%</span>
+              <span className="block text-lg font-bold text-[#d91e68]">
+                <AutoCounter value="100%" />
+              </span>
               <span className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Private</span>
             </div>
           </div>
 
-          {/* Pink Question Mark Decoration */}
-          <span
-            className="quiz-decoration select-none pointer-events-none"
-            aria-hidden="true"
-          >
-            ?
-          </span>
+          {/* Unique Animated Cartoon Question Mark (No legs, no companion extra head, no instruction texts) */}
+          <AnimatedQuestionMark className="mt-2" />
         </div>
 
         {/* Right Column: Interactive Quiz Card */}
@@ -578,12 +581,12 @@ export const QuizSection: React.FC = () => {
                       Your Score
                     </span>
                     <span className="text-3xl font-serif font-bold text-[#123440]">
-                      {score} <span className="text-base text-slate-400 font-sans">/ {QUESTIONS.length}</span>
+                      <AutoCounter value={score} /> <span className="text-base text-slate-400 font-sans">/ {QUESTIONS.length}</span>
                     </span>
                   </div>
                   <div className="text-right">
                     <span className="text-xs font-bold text-[#08798e] block">
-                      {Math.round((score / QUESTIONS.length) * 100)}% Match
+                      <AutoCounter value={`${Math.round((score / QUESTIONS.length) * 100)}%`} /> Match
                     </span>
                     <span className="text-[11px] text-slate-500">Evidence alignment</span>
                   </div>
